@@ -2,7 +2,8 @@
 "use strict";
 
 app.component("home", {
-    templateUrl: "components/home.html"
+    templateUrl: "components/home.html",
+    controller: "homeController"
 });
 
 app.config(function($stateProvider, $urlRouterProvider) {
@@ -12,4 +13,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
         url: "/",
         component: "home"
     });
+});
+
+app.controller("homeController", function () {
+
 });

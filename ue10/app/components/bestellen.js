@@ -1,7 +1,8 @@
 "use strict";
 
 app.component("bestellen", {
-    templateUrl: "components/bestellen.html"
+    templateUrl: "components/bestellen.html",
+    controller: "bestellenController"
 });
 
 
@@ -11,4 +12,8 @@ app.config(function($stateProvider) {
         url: "/bestellen",
         component: "bestellen"
     });
+});
+
+app.controller("bestellenController", function () {
+
 });
