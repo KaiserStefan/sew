@@ -17,11 +17,26 @@ app.config(function($stateProvider) {
 app.controller("einkaufenController", function () {
     let $ctrl = this;
 
-    $ctrl.options = [
+    $ctrl.ops = [
+        "",
         "Leopard 2",
         "M1A2 Abrams",
         "Challenger ",
         "T-90",
         "Leclerc"
     ];
+
+    $ctrl.opslist = [];
+    $ctrl.artikelname = "";
+    $ctrl.anzahl = "";
+
+    $ctrl.neuArtikel = function () {
+        $ctrl.opslist.push({"name": $ctrl.artikelname, "anzahl": $ctrl.anzahl});
+        $ctrl.artikelname = "";
+        $ctrl.anzahl = "";
+    };
+
+    $ctrl.loesch = function (object) {
+        $ctrl.opslist.splice($ctrl.opslist.indexOf(object), 1);
+    };
 });

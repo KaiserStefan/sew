@@ -30,28 +30,11 @@
     <script src="components/bestellen.js"></script>
     <script src="components/einkaufen.js"></script>
     <script src="components/home.js"></script>
+    <script src="components/artikel.js"></script>
+    <script src="components/start.js"></script>
 </head>
 
-<body layout="column" ng-cloak>
-    <md-toolbar class="md-hue-2" layout="row">
-        <div layout="row" layout-align="start center">
-            <md-button ui-sref="home">
-                WEBSHOP
-            </md-button>
-            <md-button ui-sref="einkaufen">
-                EINKAUFEN
-            </md-button>
-            <div flex>
-            </div>
-            <md-button ui-sref="bestellen" href="#!/bestellen">
-                BESTELLEN
-            </md-button>
-        </div>
-    </md-toolbar>
-    <section>
-    <ui-view>
-    </ui-view>
-    </section>
+<body layout="column" ng-cloak><start></start>
 </body>
 
 </html>

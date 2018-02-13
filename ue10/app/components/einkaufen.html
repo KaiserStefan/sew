@@ -1,3 +1,4 @@
+<!--
 <div class="layout-column" layout="column">
     <form layout="row" layout-align="center" class="layout-align-center-stretch" style="width: t">
         <md-input-container flex="60" class="flex-60 md-input-has-value">
@@ -22,5 +23,27 @@
     </form>
     <md-content>
 
+    </md-content>
+</div>
+-->
+<div>
+    <form layout="row" layout-align="center" name="$ctrl.formular">
+        <md-input-container flex="55">
+            <label>Artikel</label>
+            <md-select ng-model="$ctrl.artikelname" minlength="1" required>
+                <md-option ng-repeat="element in $ctrl.ops" value="{{element}}">{{element}}</md-option>
+            </md-select>
+        </md-input-container>
+        <div flex="4"></div>
+        <md-input-container flex="10">
+            <label>Menge</label>
+            <input type="number" ng-model="$ctrl.anzahl" min="1" required>
+        </md-input-container>
+        <md-input-container>
+            <md-button ng-disabled="$ctrl.formular.$invalid" ng-click="$ctrl.neuArtikel();"><md-icon>add_circle</md-icon></md-button>
+        </md-input-container>
+    </form>
+    <md-content flex>
+        <artikel ng-repeat="element in $ctrl.opslist" obj="element"  on-delete="$ctrl.loesch(object)"></artikel>
     </md-content>
 </div>

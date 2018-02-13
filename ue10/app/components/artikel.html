@@ -1,0 +1,10 @@
+<form layout="row" layout-align="center center">
+    <div flex="30">
+        <span>{{$ctrl.getname();}}</span>
+    </div>
+    <div flex="10">
+        <span>{{$ctrl.getanzahl();}}</span>
+    </div>
+    <button ng-click="$ctrl.bearbeiten();" class="md-icon-button md-button"><md-icon>mode_edit</md-icon></button>
+    <button ng-click="$ctrl.del();" class="md-icon-button md-warn md-button"><md-icon>delete</md-icon></button>
+</form>
