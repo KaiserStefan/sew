@@ -11,4 +11,8 @@ app.controller("startController", function ($state) {
     var $ctrl = this;
 
     $ctrl.uiRouterState = $state;
+
+    $ctrl.checkeWarenkorb = function (status) {
+        $ctrl.istWarenkorbLeer = status;
+    }
 });

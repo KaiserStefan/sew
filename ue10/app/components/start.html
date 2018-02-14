@@ -7,7 +7,7 @@
             EINKAUFEN
         </md-button>
         <div flex></div>
-        <md-button ng-hide="$ctrl.uiRouterState.$current.name !== 'einkaufen'" ui-sref="bestellen" ui-sref-active="md-accent"">
+        <md-button ng-disabled="!$ctrl.istWarenkorbLeer" ng-hide="$ctrl.uiRouterState.$current.name !== 'einkaufen'" ui-sref="bestellen" ui-sref-active="md-accent"">
         BESTELLEN
         </md-button>
     </div>

@@ -2,7 +2,10 @@
 
 app.component("einkaufen", {
     templateUrl: "components/einkaufen.html",
-    controller: "einkaufenController"
+    controller: "einkaufenController",
+    bindings: {
+        aktualisieren: "&"
+    }
 });
 
 
@@ -10,7 +13,7 @@ app.config(function($stateProvider) {
     $stateProvider.state({
         name: "einkaufen",
         url: "/einkaufen",
-        component: "einkaufen"
+        template: "<einkaufen aktualisieren='$ctrl.checkeWarenkorb(status)'></einkaufen>"
     });
 });
 
@@ -21,7 +24,7 @@ app.controller("einkaufenController", function () {
         "",
         "Leopard 2",
         "M1A2 Abrams",
-        "Challenger ",
+        "Challenger 2",
         "T-90",
         "Leclerc"
     ];
@@ -34,9 +37,12 @@ app.controller("einkaufenController", function () {
         $ctrl.opslist.push({"name": $ctrl.artikelname, "anzahl": $ctrl.anzahl});
         $ctrl.artikelname = "";
         $ctrl.anzahl = "";
+        $ctrl.formular.$setUntouched();
+        this.aktualisieren({"status": true});
     };
 
     $ctrl.loesch = function (object) {
         $ctrl.opslist.splice($ctrl.opslist.indexOf(object), 1);
+        this.aktualisieren({"status": this.opslist.length});
     };
 });
