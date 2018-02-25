@@ -1,0 +1,18 @@
+<md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+        <md-button ui-sref="home" ui-sref-active="md-accent">
+            WEBSHOP
+        </md-button>
+        <md-button ui-sref="einkaufen" ui-sref-active="md-accent">
+            EINKAUFEN
+        </md-button>
+        <div flex></div>
+        <md-button ng-disabled="!$ctrl.istWarenkorbLeer" ng-hide="$ctrl.uiRouterState.$current.name !== 'einkaufen'" ui-sref="bestellen" ui-sref-active="md-accent"">
+        BESTELLEN
+        </md-button>
+    </div>
+</md-toolbar>
+<section>
+    <ui-view>
+    </ui-view>
+</section>

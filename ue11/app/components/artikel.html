@@ -1,0 +1,15 @@
+<form layout="row" layout-align="center center">
+    <div flex="30">
+        <span>{{$ctrl.getname();}}</span>
+    </div>
+    <div flex="10">
+        <span>{{$ctrl.getanzahl();}}</span>
+    </div>
+    <button ng-click="$ctrl.bearbeiten()" ng-hide="$ctrl.geklickt" class="md-icon-button md-button"><md-icon>mode_edit</md-icon></button>
+    <button ng-show="$ctrl.geklickt" class="md-icon-button md-primary md-button" ng-click="$ctrl.save()"><md-icon>check_circle</md-icon></button>
+    <button ng-show="$ctrl.geklickt" class="md-icon-button md-warn md-button" ng-click="$ctrl.finish()"><md-icon>cancel_circle</md-icon></button>
+    <button ng-click="$ctrl.del()" class="md-icon-button md-warn md-button" ng-hide="$ctrl.geklickt"><md-icon>delete</md-icon></button>
+
+    <button ng-click="$ctrl.bearbeiten();" class="md-icon-button md-button"><md-icon>mode_edit</md-icon></button>
+    <button ng-click="$ctrl.del();" class="md-icon-button md-warn md-button"><md-icon>delete</md-icon></button>
+</form>
