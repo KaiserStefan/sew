@@ -43,6 +43,13 @@ app.controller("einkaufenController", function () {
 
     $ctrl.loesch = function (object) {
         $ctrl.opslist.splice($ctrl.opslist.indexOf(object), 1);
-        this.aktualisieren({"status": this.opslist.length});
+        this.aktualisieren({"status": $ctrl.opslist.length});
     };
+
+    $ctrl.speich = function (object, anz) {
+        let a = $ctrl.opslist.indexOf(object);
+        console.log(anz);
+        object.anzahl = anz;
+        $ctrl.opslist[a]=object;
+    }
 });
