@@ -1,0 +1,22 @@
+<form name="$ctrl.formular" layout="row" layout-align="center center">
+    <div flex="55" ng-hide="$ctrl.geklickt">
+    <span>{{$ctrl.text}}</span>
+    </div>
+    <div flex="45" ng-show="$ctrl.geklickt">
+        <a>{{$ctrl.text}}</a>
+    </div>
+    <div flex="10" ng-hide="$ctrl.geklickt">
+    <span>{{$ctrl.stueck}}</span>
+    </div>
+    <md-input-container flex="10" ng-show="$ctrl.geklickt">
+        <label>Menge</label>
+        <input type="number" ng-model="$ctrl.neustueck" min="1" required>
+    </md-input-container>
+
+    <button ng-click="$ctrl.geaenderteArtikel()" ng-hide="$ctrl.geklickt" class="md-icon-button md-button"><md-icon>mode_edit</md-icon></button>
+    <button ng-show="$ctrl.geklickt" class="md-icon-button md-primary md-button" ng-click="$ctrl.save()"><md-icon>check_circle</md-icon></button>
+    <button ng-show="$ctrl.geklickt" class="md-icon-button md-warn md-button" ng-click="$ctrl.finish()"><md-icon>cancel_circle</md-icon></button>
+    <button ng-click="$ctrl.geloeschteArtikel()" class="md-icon-button md-warn md-button" ng-hide="$ctrl.geklickt"><md-icon>delete</md-icon></button>
+</form>
+<!--</md-list-item>
+<md-divider></md-divider>-->
