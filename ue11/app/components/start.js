@@ -7,12 +7,11 @@ app.component("start", {
 });
 
 
-app.controller("startController", function ($state) {
-    var $ctrl = this;
+app.controller("startController", function ($state, ShopService) {
+    let $ctrl = this;
+
+    $ctrl.warenkorb = ShopService.warenkorb;
 
     $ctrl.uiRouterState = $state;
 
-    $ctrl.checkeWarenkorb = function (status) {
-        $ctrl.istWarenkorbLeer = status;
-    }
 });

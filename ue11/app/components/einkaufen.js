@@ -4,7 +4,6 @@ app.component("einkaufen", {
     templateUrl: "components/einkaufen.html",
     controller: "einkaufenController",
     bindings: {
-        aktualisieren: "&"
     }
 });
 
@@ -13,11 +12,11 @@ app.config(function($stateProvider) {
     $stateProvider.state({
         name: "einkaufen",
         url: "/einkaufen",
-        template: "<einkaufen aktualisieren='$ctrl.checkeWarenkorb(status)'></einkaufen>"
+        component: "einkaufen"
     });
 });
 
-app.controller("einkaufenController", function () {
+app.controller("einkaufenController", function (ShopService, Artikel) {
     let $ctrl = this;
 
     $ctrl.ops = [
@@ -29,27 +28,23 @@ app.controller("einkaufenController", function () {
         "Leclerc"
     ];
 
-    $ctrl.opslist = [];
+    $ctrl.warenkorb = ShopService.warenkorb;
+
     $ctrl.artikelname = "";
     $ctrl.anzahl = "";
 
     $ctrl.neuArtikel = function () {
-        $ctrl.opslist.push({"name": $ctrl.artikelname, "anzahl": $ctrl.anzahl});
+        ShopService.add(new Artikel($ctrl.artikelname, $ctrl.anzahl));
         $ctrl.artikelname = "";
         $ctrl.anzahl = "";
         $ctrl.formular.$setUntouched();
-        this.aktualisieren({"status": true});
     };
 
     $ctrl.loesch = function (object) {
-        $ctrl.opslist.splice($ctrl.opslist.indexOf(object), 1);
-        this.aktualisieren({"status": $ctrl.opslist.length});
+        ShopService.del(object);
     };
 
     $ctrl.speich = function (object, anz) {
-        let a = $ctrl.opslist.indexOf(object);
-        console.log(anz);
-        object.anzahl = anz;
-        $ctrl.opslist[a]=object;
+        ShopService.replaze(object, new Artikel(object.text, anz));
     }
 });

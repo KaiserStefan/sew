@@ -22,11 +22,11 @@ app.controller("artikelController", function () {
     };
 
     $ctrl.getname = function () {
-        return "" + $ctrl.obj.name;
+        return "" + $ctrl.obj.text;
     };
 
     $ctrl.getanzahl = function () {
-        return "" + $ctrl.obj.anzahl;
+        return "" + $ctrl.obj.menge;
     };
 
     $ctrl.del = function () {
