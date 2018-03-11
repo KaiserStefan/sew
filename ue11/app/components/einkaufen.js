@@ -38,6 +38,7 @@ app.controller("einkaufenController", function (ShopService, Artikel) {
         $ctrl.artikelname = "";
         $ctrl.anzahl = "";
         $ctrl.formular.$setUntouched();
+        $ctrl.klick = true;
     };
 
     $ctrl.loesch = function (object) {
@@ -46,5 +47,13 @@ app.controller("einkaufenController", function (ShopService, Artikel) {
 
     $ctrl.speich = function (object, anz) {
         ShopService.replaze(object, new Artikel(object.text, anz));
-    }
+    };
+
+    $ctrl.getmenge = function () {
+        let tempx = 0;
+        for (let temp in $ctrl.warenkorb) {
+            tempx += $ctrl.warenkorb[temp].menge;
+        }
+        return tempx;
+    };
 });
