@@ -1,50 +1,7 @@
-<style>
-    main,
-    main > div {
-        height: 100%;
-    }
-
-    main md-toolbar md-checkbox {
-        font-size: 16px;
-        margin-left: 2em !important;
-    }
-</style>
-
-
-<div layout="column">
+<div>
     <md-toolbar>
         <div class="md-toolbar-tools" ng-cloak>
-            <h1>Todo-Liste</h1>
-
-            <md-checkbox ng-model="$ctrl.nurUnerledigte">
-                nur unerledigte Aufgaben
-            </md-checkbox>
-
-            <div flex></div>
-
-            <md-button ui-sref="info"
-                       ui-sref-active="md-accent">
-                Info
-            </md-button>
+            <h1>TODO-Liste</h1>
         </div>
     </md-toolbar>
-
-<!--
-    <ui-view flex></ui-view>
--->
-
-    <div layout="column">
-        <div layout="row" layout-align="start center">
-            <div flex="30">Fällig</div>
-            <div flex="10">erledigt</div>
-            <div flex>Aufgabe</div>
-            <div layout="row" flex="none">
-                <md-button class="md-icon-button">
-                    <md-icon md-font-icon="material-icons">add_circle_outline</md-icon>
-                </md-button>
-            </div>
-        </div>
-
-        <item ng-repeat="a in $ctrl.aufgaben" aufgabe="a"></item>
-    </div>
 </div>

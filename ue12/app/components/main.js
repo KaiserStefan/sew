@@ -6,6 +6,6 @@ app.component("main", {
 });
 
 
-app.controller("MainController", function(Liste) {
-    this.aufgaben = Liste.aufgaben;
+app.controller("MainController", function() {
+
 });

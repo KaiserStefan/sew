@@ -2,15 +2,10 @@
 
 app.component("item", {
     templateUrl: "components/item.html",
-    controller: "ItemController",
-    bindings: {
-        aufgabe: "<"
-    }
+    controller: "ItemController"
 });
 
 
-app.controller("ItemController", function(Liste) {
-
-    this.Liste = Liste;
+app.controller("ItemController", function() {
 
 });
