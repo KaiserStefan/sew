@@ -1,0 +1,15 @@
+<md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+        <md-button ui-sref="zeiterfassung" ui-sref-active="md-accent">
+            Zeiterfassung
+        </md-button>
+        <div flex></div>
+        <md-button ng-disabled="" ng-hide="$ctrl.uiRouterState.$current.name !== 'zeiterfassung'" ui-sref="info" ui-sref-active="md-accent"">
+        Info
+        </md-button>
+    </div>
+</md-toolbar>
+<section>
+    <ui-view>
+    </ui-view>
+</section>
