@@ -15,3 +15,9 @@ app.config(function($stateProvider) {
         component: "zeiterfassung"
     });
 });
+
+app.controller("zeiterfassungController", function (ZeitService, Aktivität) {
+    let $ctrl = this;
+
+
+});
