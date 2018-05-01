@@ -1,0 +1,24 @@
+<md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+        <span>Host-Explorer</span>
+    </div>
+</md-toolbar>
+<section style="margin: 10px;">
+    <form name="hostform">
+        <md-input-container class="md-block" layout="column">
+            <div>
+                <label>Host-Name:</label>
+                <input ng-model="$ctrl.name" required name="hostinput">
+            </div>
+            <div>
+                <md-button type="submit" ng-click="$ctrl.neuhost();">Submit</md-button>
+            </div>
+        </md-input-container>
+    </form>
+    <div ng-show="$ctrl.bool" layout="column">
+        <span>IP: {{$ctrl.ip}}</span>
+        <span>Land: {{$ctrl.place}}</span>
+        <span>Sonnenaufgang: {{$ctrl.time}}</span>
+        <span>Wetter: {{$ctrl.weather}}</span>
+    </div>
+</section>
