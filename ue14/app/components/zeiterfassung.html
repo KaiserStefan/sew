@@ -1,11 +1,50 @@
-<div>
-    <form layout="row" layout-align="center" name="$ctrl.formular">
-jgfhj
-        <md-input-container>
-            <md-button ng-click=""><md-icon>add_circle</md-icon></md-button>
-        </md-input-container>
-    </form>
-    <md-content flex>
 
-    </md-content>
+<div layout="column">
+    <div layout="row" layout-align="start center">
+        <div flex="20"></div>
+        <div flex="10"><b>Person</b></div>
+        <div flex="30"><b>Aktivität</b></div>
+        <div flex="15"><b>Dauer</b></div>
+
+        <div layout="row" flex="10">
+            <md-button ng-click="" class="md-icon-button">
+                <md-icon md-font-icon="material-icons">add_circle_outline</md-icon>
+            </md-button>
+        </div>
+    </div>
 </div>
+<hr>
+<div layout="column">
+    <div layout-align="start center" ng-show="$ctrl.wirdBearbeitet">
+        <form name="" layout="row">
+            <div flex="20"></div>
+            <md-input-container flex="10">
+                <label>Person:</label>
+                <input type="text" ng-model="$ctrl.NeuPerson" minlength="3" required>
+            </md-input-container>
+            <md-input-container flex="45">
+                <label>Tätigkeit:</label>
+                <input type="text" ng-model="$ctrl.NeuAktivitaet" minlength="3" required>
+            </md-input-container>
+            <div layout="row" flex>
+                <md-button class="md-icon-button">
+                    <md-icon md-font-icon="material-icons" ng-click="$ctrl.end()">delete</md-icon>
+                </md-button>
+                <md-button
+                        class="md-icon-button md-warn"
+                        ng-click="$ctrl.add()" ng-disabled="$ctrl.formular.$invalid">
+                    <md-icon md-font-icon="material-icons">done</md-icon>
+                </md-button>
+            </div>
+        </form>
+    </div></div>
+<hr>
+<form layout="row" layout-align="start center">
+    <div flex="30"></div>
+    <div flex="30">
+        <b>Gesamtdauer</b>
+    </div>
+    <div flex="10">
+        <b>{{$ctrl.gesamtdauer() | date:'HH:mm:ss':'UTC'}}</b>
+    </div>
+</form>

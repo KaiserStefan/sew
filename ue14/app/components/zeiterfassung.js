@@ -19,5 +19,4 @@ app.config(function($stateProvider) {
 app.controller("zeiterfassungController", function (ZeitService, Aktivität) {
     let $ctrl = this;
 
-
 });
