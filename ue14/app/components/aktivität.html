@@ -1,1 +1,29 @@
-safdsfgdsgr
+<div layout="row" layout-align="center center" ng-hide="$ctrl.wirdBearbeitet">
+
+    <div flex="20"></div>
+    <div flex="10">
+        {{$ctrl.aktivitaet.person}}
+    </div>
+    <div flex="30">
+        {{$ctrl.aktivitaet.taetigkeit}}
+    </div>
+    <div flex="15">
+        {{$ctrl.aktivitaet.dauer | date:'HH:mm:ss':'UTC'}}
+    </div>
+    <div flex>
+        <md-button class="md-icon-button" ng-disabled="$ctrl.geklickt === true">
+            <md-icon md-font-icon="material-icons" ng-click="$ctrl.entfernen()">delete</md-icon>
+        </md-button>
+    </div>
+    <div flex>
+        <md-button class="md-icon-button md-primary" ng-hide="$ctrl.geklickt" ng-model="$ctrl.startzeit">
+            <md-icon md-font-icon="material-icons" ng-click="$ctrl.start()" >play_circle_filled</md-icon>
+
+        </md-button>
+        <md-button class="md-icon-button md-accent" ng-show="$ctrl.geklickt">
+            <md-icon md-font-icon="material-icons" ng-click="$ctrl.stop()">pause_circle_filled</md-icon>
+            <md-button class="md-icon-button md-primary">
+    </div>
+
+</div>
+</div>

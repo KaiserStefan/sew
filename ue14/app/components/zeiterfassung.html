@@ -7,7 +7,7 @@
         <div flex="15"><b>Dauer</b></div>
 
         <div layout="row" flex="10">
-            <md-button ng-click="" class="md-icon-button">
+            <md-button ng-click="$ctrl.hinzufuegen()" class="md-icon-button">
                 <md-icon md-font-icon="material-icons">add_circle_outline</md-icon>
             </md-button>
         </div>
@@ -16,7 +16,8 @@
 <hr>
 <div layout="column">
     <div layout-align="start center" ng-show="$ctrl.wirdBearbeitet">
-        <form name="" layout="row">
+
+        <form name="$ctrl.formular" layout="row">
             <div flex="20"></div>
             <md-input-container flex="10">
                 <label>Person:</label>
@@ -37,7 +38,11 @@
                 </md-button>
             </div>
         </form>
-    </div></div>
+
+    </div>
+    <aktivität ng-repeat="akt in $ctrl.aktivitaeten track by $index" aktiv="akt" geaendert="$ctrl.ersetzen(akt,aktivitaetNeu)" geloescht="$ctrl.entfernen(akt)"></aktivität>
+</div>
+
 <hr>
 <form layout="row" layout-align="start center">
     <div flex="30"></div>
