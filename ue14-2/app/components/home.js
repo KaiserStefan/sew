@@ -28,6 +28,7 @@ app.controller("homeController", function ($http) {
         $http.get("http://www.dns-lg.com/ch01/"+$ctrl.name+"/a")
             .then(function(response){
                 $ctrl.bool = true;
+                $ctrl.bool2 = false;
                 /*
                 console.log(response);
                 console.log(response.data.answer[0].rdata);
@@ -67,6 +68,7 @@ app.controller("homeController", function ($http) {
 
 
             }).catch(function (data) {
+                $ctrl.bool = false;
                 $ctrl.bool2 = true;
                 $ctrl.erro = data.status;
             });
