@@ -1,0 +1,27 @@
+
+<div>
+    <form layout="row" layout-align="center" name="$ctrl.formular">
+        <md-input-container flex="55">
+            <label>Artikel</label>
+            <md-select ng-model="$ctrl.artikelname" minlength="1" required>
+                <md-option ng-repeat="element in $ctrl.ops" value="{{element}}">{{element}}</md-option>
+            </md-select>
+        </md-input-container>
+        <div flex="4"></div>
+        <md-input-container flex="10">
+            <label>Menge</label>
+            <input type="number" ng-model="$ctrl.anzahl" min="1" required>
+        </md-input-container>
+        <md-input-container>
+            <md-button ng-disabled="$ctrl.formular.$invalid" ng-click="$ctrl.neuArtikel();"><md-icon>add_circle</md-icon></md-button>
+        </md-input-container>
+    </form>
+    <md-content flex>
+        <artikel ng-repeat="element in $ctrl.warenkorb" obj="element"  on-delete="$ctrl.loesch(object)" on-speichern="$ctrl.speich(object, anz)"></artikel>
+        <div  style="border-top: 1px black solid; margin-bottom: 20px;" ng-hide="!$ctrl.warenkorb.length" layout="row" layout-align="center center">
+            <div>Gesamtmenge</div>
+            <div flex="20"></div>
+            <div>{{$ctrl.getmenge()}}</div>
+        </div>
+    </md-content>
+</div>
