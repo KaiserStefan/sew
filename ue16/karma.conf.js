@@ -57,7 +57,7 @@ module.exports = function (config) {
         autoWatch: true,
 
         // Diese Browser starten (in WebStorm Run-Konfiguration überschreibbar)
-        browsers: ["Chrome"],
+        browsers: ["Firefox"],
 
         // true: nur einzelne Tests ausführen ("autoWatch:" wird ignoriert)
         singleRun: false,
