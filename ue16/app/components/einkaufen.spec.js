@@ -2,7 +2,7 @@
 
 describe("einkaufenController", function () {
 
-    var controller, einkaufenController;
+    var controller, einkaufenController, ShopService, Artikel;
 
     beforeEach(() => {
         module("Vorlage");
@@ -13,6 +13,19 @@ describe("einkaufenController", function () {
         einkaufenController = controller("einkaufenController", {
         });
     });
+    beforeEach(inject(function($controller) {
+        var ShopService = {
+            warenkorb: [],
+            add: function () {
+            },
+            del: function () {
+            },
+            replaze: function () {
+            }
+        };
+        spyOn(ShopService, 'add', 'del', 'replaze').and.returnValue("ShopService");
+
+    }));
     it("Instanz wird erzeugt", function () {
         expect(einkaufenController).toBeDefined();
     });
@@ -24,11 +37,11 @@ describe("einkaufenController", function () {
         expect(einkaufenController.anzahl).toEqual("");
             einkaufenController.artikelname = "Test";
             einkaufenController.anzahl = 9;
+        expect(einkaufenController.artikelname).toEqual("Test");
+        expect(einkaufenController.anzahl).toEqual(9);
             einkaufenController.formular = {$setUntouched : function () {
-
             }};
             einkaufenController.neuArtikel();
             expect(ShopService.warenkorb.length).toEqual(1);
-
         });
 });
